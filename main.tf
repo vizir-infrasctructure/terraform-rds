@@ -29,6 +29,7 @@ resource "aws_rds_cluster" "default" {
   snapshot_identifier          = "${var.snapshot_identifier}"
   tags                         = "${var.tags}"
   vpc_security_group_ids       = ["${aws_security_group.rds.id}"]
+  performance_insights_enabled = "${var.performance_insights_enabled}"
 }
 
 resource "aws_rds_cluster_instance" "cluster_instances" {
@@ -41,7 +42,6 @@ resource "aws_rds_cluster_instance" "cluster_instances" {
   publicly_accessible   = "${var.publicly_accessible}"
   skip_final_snapshot   = "${var.skip_final_snapshot}"
   tags                  = "${var.tags}"
-  performance_insights_enabled = "${var.performance_insights_enabled}"
 }
 
 resource "aws_db_instance" "default" {
