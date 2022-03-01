@@ -29,7 +29,6 @@ resource "aws_rds_cluster" "default" {
   snapshot_identifier          = "${var.snapshot_identifier}"
   tags                         = "${var.tags}"
   vpc_security_group_ids       = ["${aws_security_group.rds.id}"]
-  performance_insights_enabled = "${var.performance_insights_enabled}"
 }
 
 resource "aws_rds_cluster_instance" "cluster_instances" {
@@ -72,6 +71,8 @@ resource "aws_db_instance" "default" {
   storage_type                 = "${var.rds_storage_type}"
   tags                         = "${var.tags}"
   username                     = "${var.db_username}"
+  performance_insights_enabled = true
+  performance_insights_retention_period = 7
   vpc_security_group_ids       = ["${aws_security_group.rds.id}"]
 }
 
