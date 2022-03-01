@@ -41,6 +41,7 @@ resource "aws_rds_cluster_instance" "cluster_instances" {
   publicly_accessible   = "${var.publicly_accessible}"
   skip_final_snapshot   = "${var.skip_final_snapshot}"
   tags                  = "${var.tags}"
+  performance_insights_enabled = "${var.performance_insights_enabled}"
 }
 
 resource "aws_db_instance" "default" {
@@ -71,7 +72,6 @@ resource "aws_db_instance" "default" {
   storage_type                 = "${var.rds_storage_type}"
   tags                         = "${var.tags}"
   username                     = "${var.db_username}"
-  performance_insights_enabled = "${var.performance_insights_enabled}"
   vpc_security_group_ids       = ["${aws_security_group.rds.id}"]
 }
 
