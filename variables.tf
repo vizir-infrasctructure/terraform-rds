@@ -107,9 +107,5 @@ variable "vpc_id" {}
 variable "performance_insights_enabled" {}
 
 
-variable "storage_encrypted" {
-  type        = bool
-  description = "(Optional) Specifies whether the DB instance is encrypted. The default is false if not specified"
-  default     = true
-}
+variable "storage_encrypted" {}
 
