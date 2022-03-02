@@ -74,6 +74,7 @@ resource "aws_db_instance" "default" {
   performance_insights_enabled = true
   performance_insights_retention_period = 7
   vpc_security_group_ids       = ["${aws_security_group.rds.id}"]
+  storage_encrypted            = "${var.storage_encrypted}"
 }
 
 resource "aws_db_subnet_group" "rds" {
