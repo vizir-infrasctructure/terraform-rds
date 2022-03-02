@@ -105,3 +105,5 @@ variable "tags" {
 variable "vpc_id" {}
 
 variable "performance_insights_enabled" {}
+
+variable "storage_encrypted" {}
